@@ -1,13 +1,18 @@
 name: "Weather-Bot"
 on:
+  push:
+    branches: 
+      - master
 
   schedule:
 
-    - '0 14 * * *'
+    - cron: '0 14 * * *'
 
 jobs:
   bot:
+    runs-on: [windows-latest]
     steps:
+      - uses: actions/checkout@v1
       - name: 'Install node'
         uses: actions/setup-node@v1
       - name: 'Install NPM dependemcies'
